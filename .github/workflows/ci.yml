@@ -150,7 +150,8 @@ jobs:
           command: cd frontend && npm run test:ci
 
       - name: Build
-        run: cd frontend && npm run build
+        timeout-minutes: 15
+        run: cd frontend && NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
   # ─── Security Scan ───────────────────────────────────────────────
   security-scan:
